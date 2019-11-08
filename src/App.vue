@@ -31,7 +31,8 @@
       <v-spacer></v-spacer>
 
       <v-toolbar-items v-for="item in menuItems" :key="item.title">
-        <v-btn text>{{ item.title }}</v-btn>
+        <!-- 移動できるように設定 -->
+        <v-btn text router :to='item.link'>{{ item.title }}</v-btn>
       </v-toolbar-items>
     </v-toolbar>
 
