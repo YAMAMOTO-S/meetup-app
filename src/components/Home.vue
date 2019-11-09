@@ -15,14 +15,16 @@
 
          <!-- 中央のスライド -->
          <v-row>
-           <v-carousel height="400" hide-delimiter-background show-arrows-on-hover class="cards">
+           <v-carousel height="400"  show-arrows-on-hover class="cards">
                <v-carousel-item
                   v-for="meetup in meetups"
                   :key="meetup.id"
                   :src="meetup.imageURL"
                   reverse-transition="fade-transition"
                   transition="fade-transition"
-               ></v-carousel-item>
+               >
+                <div class="card_title">{{meetup.title}}</div>
+               </v-carousel-item>
             </v-carousel>
          </v-row>   
 
@@ -51,7 +53,7 @@ export default {
 </script>
 
 
-<style>
+<style scoped>
 .center_btn{
    text-align:center;
    margin-top: 50px;
@@ -61,5 +63,13 @@ export default {
    max-width: 800px;
    text-align: center;
    margin: auto;
+}
+.card_title{
+   position: absolute;
+   bottom: 50px;
+   background-color: rgba(0,0,0,0.5);
+   color: azure;
+   font-size: 25px;
+
 }
 </style>
