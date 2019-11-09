@@ -30,6 +30,7 @@
 
       <v-spacer></v-spacer>
 
+      
       <v-toolbar-items v-for="item in menuItems" :key="item.title">
         <!-- 移動できるように設定 -->
         <v-btn text router :to='item.link'>{{ item.title }}</v-btn>
@@ -62,8 +63,8 @@ export default {
     return{
       sideNav: false,
       menuItems: [
-        { icon: 'mdi-face', title: 'Meetup', link: '/meetups'},
-        { icon: 'mdi-account-box-multiple', title: 'Organize Meetup', link: 'meetup/new'},
+        { icon: 'mdi-face', title: 'All Meetups', link: '/meetups'},
+        { icon: 'mdi-account-box-multiple', title: 'Create', link: 'meetup/new'},
         { icon: 'mdi-account-badge-horizontal-outline', title: 'Profile', link: '/profile'},
         { icon: 'mdi-emoticon-neutral-outline', title: 'Sign up', link: '/signup'},
         { icon: 'mdi-account-card-details-outline', title: 'Sign in', link: '/signin'}
@@ -77,5 +78,4 @@ export default {
 .face{
   margin-right: 20px
 }
-
 </style>
