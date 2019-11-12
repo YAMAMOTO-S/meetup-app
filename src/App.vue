@@ -21,7 +21,7 @@
 
     <!-- ここからメインのバー -->
     <v-toolbar>
-      <v-app-bar-nav-icon @click.native.stop="sideNav = !sideNav"></v-app-bar-nav-icon>
+      <v-app-bar-nav-icon @click.stop="sideNav = !sideNav"></v-app-bar-nav-icon>
       <v-toolbar-title>
         <router-link to='/' tag="span" style="cursor: pointer">
           <v-icon>mdi-emoticon-neutral-outline</v-icon>
@@ -33,7 +33,7 @@
       
       <v-toolbar-items v-for="item in menuItems" :key="item.title">
         <!-- 移動できるように設定 -->
-        <v-btn text router :to='item.link'>{{ item.title }}</v-btn>
+        <v-btn text :to='item.link'>{{ item.title }}</v-btn>
       </v-toolbar-items>
     </v-toolbar>
 
