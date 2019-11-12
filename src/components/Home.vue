@@ -15,13 +15,14 @@
 
          <!-- 中央のスライド -->
          <v-row>
-           <v-carousel height="400"  show-arrows-on-hover class="cards">
+           <v-carousel height="400"  show-arrows-on-hover class="cards" style="cursor: pointer;">
                <v-carousel-item
                   v-for="meetup in meetups"
                   :key="meetup.id"
                   :src="meetup.imageURL"
                   reverse-transition="fade-transition"
                   transition="fade-transition"
+                  @click="onLoadMeetup(meetup.id)"
                >
                 <div class="card_title">{{meetup.title}}</div>
                </v-carousel-item>
@@ -39,15 +40,16 @@
 
 <script>
 export default {
-   data(){
-      return{
-         meetups: [
-            { imageURL: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg', 
-              id: '111', title: 'Meetup in New York' },
-            { imageURL: 'https://cdn.vuetifyjs.com/images/carousel/sky.jpg', 
-            id: '222', title: 'Meetup in New Paris' }
-         ]
+   computed: {
+      meetups () {
+         return this.$store.getters.featuredMeetups
       }
+   },
+   methods: {
+      onLoadMeetup(id){
+         this.$router.push('/meetups/' + id);
+      },
+
    }
 }
 </script>

@@ -17,11 +17,8 @@
 
                </v-card-text>
                <v-card-actions>
-                  <v-btn
-                  text
-                  color="deep-purple accent-4"
-                  >
-                  Learn More
+                  <v-btn depressed>
+                  Register
                   </v-btn>
                </v-card-actions>
 
