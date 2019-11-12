@@ -23,9 +23,10 @@
                </v-card-text>
 
                <v-card-actions>
-                  <v-btn depressed :to="'/meetups/' + meetup.id">
-                     <v-icon left>mdi-charity</v-icon>
-                     View Meetup</v-btn>
+                  <!-- 個別のページに行く -->
+                  <v-btn depressed :to="'/meetups/' + meetup.id" max-width="300">
+                     
+                     View Detail</v-btn>
                </v-card-actions>
             </v-card>
          </v-col>
@@ -45,5 +46,7 @@ export default {
 </script>
 
 <style>
-
+.btnb{
+   padding-right: 50px;
+}
 </style>
