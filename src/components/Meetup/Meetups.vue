@@ -25,7 +25,6 @@
                <v-card-actions>
                   <!-- 個別のページに行く -->
                   <v-btn depressed :to="'/meetups/' + meetup.id" max-width="300">
-                     
                      View Detail</v-btn>
                </v-card-actions>
             </v-card>
