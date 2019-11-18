@@ -10,14 +10,14 @@ export const store = new Vuex.Store({
         imageUrl: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg',
         id: '111',
         title: 'Meetup in New York',
-        date: '2017-07-15',
+        date: new Date(),
         description: 'This is a first Event at New York city!!'
       },
       {
         imageUrl: 'https://cdn.vuetifyjs.com/images/carousel/sky.jpg',
         id: '222',
         title: 'Meetup in New Paris',
-        date: '2017-07-20',
+        date: new Date(),
         description: 'This is secound one !!'
       }
     ],

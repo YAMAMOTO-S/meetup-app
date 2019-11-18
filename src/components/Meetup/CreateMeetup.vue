@@ -27,9 +27,6 @@
                <v-row justify="center">
                   <h4>Please Chose Event Date</h4>
                </v-row>
-               <v-row justify="center">
-                     {{submitDate}}
-                  </v-row>
                <v-row  justify="center">
 <!-- カレンダー -->
                   <v-date-picker v-model="date" color="blue-grey lighten-3"></v-date-picker>
