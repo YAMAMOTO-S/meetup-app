@@ -10,14 +10,14 @@ export const store = new Vuex.Store({
         imageUrl: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg',
         id: '111',
         title: 'Meetup in New York',
-        data: '2017-07-15',
+        date: '2017-07-15',
         description: 'This is a first Event at New York city!!'
       },
       {
         imageUrl: 'https://cdn.vuetifyjs.com/images/carousel/sky.jpg',
         id: '222',
         title: 'Meetup in New Paris',
-        data: '2017-07-20',
+        date: '2017-07-20',
         description: 'This is secound one !!'
       }
     ],
@@ -38,7 +38,7 @@ export const store = new Vuex.Store({
         location: payload.location,
         imageUrl: payload.imageUrl,
         description: payload.description,
-        data: payload.data,
+        date: payload.date,
         id: '11111'
       }
       commit('createMeetup', meetup)

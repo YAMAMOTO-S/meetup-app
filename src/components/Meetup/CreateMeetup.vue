@@ -2,7 +2,7 @@
    <v-container>
       <v-row>
 
-         <v-col class="mx-auto" cols="12" md="8" sm="6">
+         <v-col class="mx-auto" cols="12" md="9" sm="9">
             <form @submit.prevent="submitMeetup">
                <h2 class="title">Create your meetup!!</h2>
                <br>
@@ -22,10 +22,25 @@
                <div class="subbtn">
                   <img :src="imageUrl" height="200">
                </div>
-               <div class="subbtn">
-                  <!-- 全て入れないとボタンが浮き出ないようにしている。 -->
+
+<!-- ここから時間設定 -->
+               <v-row justify="center">
+                  <h4>Please Chose Event Date</h4>
+               </v-row>
+               <v-row justify="center">
+                     {{submitDate}}
+                  </v-row>
+               <v-row  justify="center">
+<!-- カレンダー -->
+                  <v-date-picker v-model="date" color="blue-grey lighten-3"></v-date-picker>
+               </v-row>
+               
+               <br>
+               <div  class="subbtn">
+<!-- 全て入れないとボタンが浮き出ないようにしている。 -->
                   <v-btn :disabled="!formIsValid" type="submit">Create</v-btn>
                </div>
+
             </form>
          </v-col>
 
@@ -40,13 +55,18 @@ export default {
          title: '',
          location: '',
          description: '',
-         imageUrl: ''
+         imageUrl: '',
+         date: '',
       }
    },
    computed: {
       formIsValid(){
          return this.title !== '' && this.location !== '' 
          && this.imageUrl !== '' && this.description !== ''
+      },
+      submitDate(){
+        const date = new Date(this.date)
+        return date
       }
    },
    methods: {
@@ -60,7 +80,7 @@ export default {
             location: this.location,
             imageUrl: this.imageUrl,
             description: this.description,
-            data: new Date()
+            date: this.submitDate
          }
          this.$store.dispatch('createMeetup', meetupData)
          this.$router.push('/meetups');
@@ -77,9 +97,10 @@ export default {
 }
 .subbtn{
    text-align: center;
-   margin: 50px;
+   margin: 20px;
 }
 .imagepre{
    width: auto;
 }
+
 </style>

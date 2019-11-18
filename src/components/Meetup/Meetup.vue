@@ -16,7 +16,7 @@
                   <p class="display-1 text--primary">
                   {{ meetup.title}}
                   </p>
-                  <p class="info--text">{{ meetup.data}}</p>
+                  <p class="info--text">{{ meetup.date}}</p>
 
                   <div class="text--primary">
                   {{ meetup.description}}
