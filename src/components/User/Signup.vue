@@ -1,34 +1,34 @@
 <template>
-<v-container>
-      <v-row>
+   <v-container>
+         <v-row>
 
-         <v-col class="mx-auto" cols="12" md="9" sm="9">
-            <form @submit.prevent="onSignup">
-               <h2 class="title">Create your Account!!</h2>
-               <br>
+            <v-col class="mx-auto" cols="12" md="9" sm="9">
+               <form @submit.prevent="onSignup">
+                  <h2 class="title">Create your Account!!</h2>
+                  <br>
 
-               <v-text-field label="Email" name="email" id="email" required v-model="email" type="email">
-               </v-text-field>
+                  <v-text-field label="Email" name="email" id="email" required v-model="email" type="email">
+                  </v-text-field>
 
-               <v-text-field label="Password" name="password" id="password" required v-model="password" type="password">
-               </v-text-field>
+                  <v-text-field label="Password" name="password" id="password" required v-model="password" type="password">
+                  </v-text-field>
 
-<!-- 固有のルールを設定してPASSWORDの確認を行う -->
-               <v-text-field label="Confirm Password" name="confirmPassword" id="confirmPassword" v-model="confirmPassword" type="password"
-                  :rules="[comparePassword]">
-               </v-text-field>
+   <!-- 固有のルールを設定してPASSWORDの確認を行う -->
+                  <v-text-field label="Confirm Password" name="confirmPassword" id="confirmPassword" v-model="confirmPassword" type="password"
+                     :rules="[comparePassword]">
+                  </v-text-field>
 
-               <br>
-               <div  class="subbtn">
-<!-- 全て入れないとボタンが浮き出ないようにしている。 -->
-                  <v-btn type="submit">Create</v-btn>
-               </div>
+                  <br>
+                  <div  class="subbtn">
+   <!-- 全て入れないとボタンが浮き出ないようにしている。 -->
+                     <v-btn type="submit">Create</v-btn>
+                  </div>
 
-            </form>
-         </v-col>
+               </form>
+            </v-col>
 
-      </v-row>
-   </v-container>
+         </v-row>
+      </v-container>
 </template>
 
 <script>
