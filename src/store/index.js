@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import * as firebase from 'firebase'
 
 Vue.use(Vuex)
 
@@ -21,14 +22,14 @@ export const store = new Vuex.Store({
         description: 'This is secound one !!'
       }
     ],
-    user: {
-      id: '12346',
-      registeredMeetups: []
-    }
+    user: null
   },
   mutations: {
     createMeetup(state, payload) {
       state.loadedMeetups.push(payload)
+    },
+    setUser(state, payload) {
+      state.user = payload
     }
   },
   actions: {
@@ -42,10 +43,26 @@ export const store = new Vuex.Store({
         id: '11111'
       }
       commit('createMeetup', meetup)
+    },
+    signUserUp({ commit }, payload) {
+      firebase.auth().createUserWithEmailAndPassword(payload.email, payload.password)
+        .then(
+          user => {
+            const newUser = {
+              id: user.uid,
+              registeredMeetups: []
+            }
+            commit('setUser', newUser)
+          }
+      )
+        .catch(
+          error => {
+            console.log(error)
+        }
+      )
     }
   },
-  modules: {
-  },
+  
   getters: {
     loadedMeetups(state) {
       return state.loadedMeetups.sort((meetupA, meetupB) => {
@@ -61,6 +78,9 @@ export const store = new Vuex.Store({
     },
     featuredMeetups(state, getters) {
       return getters.loadedMeetups.slice(0, 5);
+    },
+    user(state) {
+      return state.user
     }
   }
 })

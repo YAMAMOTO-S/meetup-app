@@ -44,11 +44,22 @@ export default {
 // PASSWORD確認
       comparePassword(){
          return this.password !== this.confirmPassword ? 'Psswords do not match' : ''
+      },
+      user(){
+         return this.$store.getters.user
+      }
+   },
+   watch:{
+// 登録できたらメインページに戻る
+      user(value){
+         if (value !== null && value !== undefined) {
+            this.$router.push('/')
+         }
       }
    },
    methods: {
       onSignup(){
-         console.log({email: this.email, password: this.password, confirmPassword: this.confirmPassword})
+         this.$store.dispatch('signUserUp', {email: this.email, password: this.password})
       }
    }
 }
