@@ -18,11 +18,19 @@ new Vue({
 
     created() {
       firebase.initializeApp({
-        apiKey: 'AIzaSyD7d9R7giakKKiciHbywU7U093cxQv2SRM',
-        authDomain: 'any-meetup.firebaseapp.com',
-        databaseURL: 'https://any-meetup.firebaseio.com',
-        projectId: 'any-meetup',
-        storageBucket: 'any-meetup.appspot.com',
+        // apiKey: 'AIzaSyD7d9R7giakKKiciHbywU7U093cxQv2SRM',
+        // authDomain: 'any-meetup.firebaseapp.com',
+        // databaseURL: 'https://any-meetup.firebaseio.com',
+        // projectId: 'any-meetup',
+        // storageBucket: 'any-meetup.appspot.com',
+            apiKey: "AIzaSyAXHaTsoLNxdLoo03oldmDn2Yx3oz_szTc",
+              authDomain: "your-meetup.firebaseapp.com",
+              databaseURL: "https://your-meetup.firebaseio.com",
+              projectId: "your-meetup",
+              storageBucket: "your-meetup.appspot.com",
+              messagingSenderId: "85200115585",
+              appId: "1:85200115585:web:2f8b6fa9e762a1a78a7a80",
+              measurementId: "G-3712MW2TB7"
       })
     }
 }).$mount('#app')

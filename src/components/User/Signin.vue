@@ -6,21 +6,16 @@
                <form @submit.prevent="onSignin">
                   <h2 class="title">Sign in</h2>
                   <br>
-
                   <v-text-field label="Email" name="email" id="email" required v-model="email" type="email">
                   </v-text-field>
 
                   <v-text-field label="Password" name="password" id="password" required v-model="password" type="password">
                   </v-text-field>
 
-
-
                   <br>
                   <div  class="subbtn">
-   <!-- 全て入れないとボタンが浮き出ないようにしている。 -->
                      <v-btn type="submit">Log in</v-btn>
                   </div>
-
                </form>
             </v-col>
 

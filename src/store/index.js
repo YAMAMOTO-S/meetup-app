@@ -39,10 +39,22 @@ export const store = new Vuex.Store({
         location: payload.location,
         imageUrl: payload.imageUrl,
         description: payload.description,
-        date: payload.date,
-        id: '11111'
+        date: payload.date.toISOString()
       }
-      commit('createMeetup', meetup)
+
+//  firebaseに書き込む     
+      firebase.database().ref('meetups').push(meetup)
+        .then((data) => {
+          const key = data.key
+// mutetionに送っている
+          commit('createMeetup', {
+            ...meetup,
+            id: key
+          })
+        })
+        .catch((error) => {
+          console.log(error)
+        })
     },
     signUserUp({ commit }, payload) {
       firebase.auth().createUserWithEmailAndPassword(payload.email, payload.password)
