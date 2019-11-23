@@ -25,6 +25,11 @@ export const store = new Vuex.Store({
     user: null
   },
   mutations: {
+
+    setLoadedMeetups(state, payload) {
+      state.loadedMeetups = payload
+    },
+
     createMeetup(state, payload) {
       state.loadedMeetups.push(payload)
     },
@@ -89,6 +94,31 @@ export const store = new Vuex.Store({
             console.log(error)
           }
       )
+    },
+    loadMeetups({ commit }) {
+// firebaseからデータを持ってきている
+      firebase.database().ref('meetups').once('value')
+        .then((data) => {
+          const meetups = []
+          const obj = data.val()
+          for (let key in obj) {
+            meetups.push({
+              id: key,
+// keyを使って中身を見ている             
+              title: obj[key].title,
+              description: obj[key].description,
+              imageUrl: obj[key].imageUrl,
+              date: obj[key].date
+            })
+          }
+// ここでsetLoadedMeetupsに渡している
+          commit('setLoadedMeetups', meetups)
+        })
+        .catch(
+          (error) => {
+            console.log(error)
+          }
+        )
     }
   },
   

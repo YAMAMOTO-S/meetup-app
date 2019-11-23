@@ -32,5 +32,7 @@ new Vue({
               appId: "1:85200115585:web:2f8b6fa9e762a1a78a7a80",
               measurementId: "G-3712MW2TB7"
       })
+
+      this.$store.dispatch('loadMeetups')
     }
 }).$mount('#app')
