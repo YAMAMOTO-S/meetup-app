@@ -122,8 +122,16 @@ export const store = new Vuex.Store({
     },
     autoSingIn({commit}, payload) {
       commit('setUser', {id: payload.uid, registerdMeetups: []})
+    },
+// ログアウト用
+    logout({ commit }) {
+      firebase.auth().signOut()
+      commit('setUser', null)
     }
   },
+  
+
+
   
   getters: {
     loadedMeetups(state) {

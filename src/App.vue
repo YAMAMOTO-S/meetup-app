@@ -29,12 +29,17 @@
       </v-toolbar-title>
 
       <v-spacer></v-spacer>
-
-      
+  
       <v-toolbar-items v-for="item in menuItems" :key="item.title">
         <!-- 移動できるように設定 -->
         <v-btn text :to='item.link'>{{ item.title }}</v-btn>
       </v-toolbar-items>
+
+<!-- ログアウト用 -->
+      <v-toolbar-items v-if="userIsAuthenticated">
+        <v-btn text @click="onLogout">Logout</v-btn>
+      </v-toolbar-items>
+
     </v-toolbar>
 
 
@@ -91,6 +96,11 @@ export default {
 // ユーザーを確かめるためのもの
     userIsAuthenticated(){
       return this.$store.getters.user !== null && this.$store.getters.user !== undefined
+    }
+  },
+  methods: {
+    onLogout(){
+      this.$store.dispatch('logout')
     }
   }
 };
