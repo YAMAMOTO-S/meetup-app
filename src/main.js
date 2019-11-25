@@ -32,6 +32,11 @@ new Vue({
               appId: "1:85200115585:web:2f8b6fa9e762a1a78a7a80",
               measurementId: "G-3712MW2TB7"
       })
+      firebase.auth().onAuthStateChanged((user) => {
+        if (user) {
+          this.$store.dispatch('autoSingIn', user)
+        }
+      })
 
       this.$store.dispatch('loadMeetups')
     }

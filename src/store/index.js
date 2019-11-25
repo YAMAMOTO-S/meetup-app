@@ -7,20 +7,20 @@ Vue.use(Vuex)
 export const store = new Vuex.Store({
   state: {
     loadedMeetups: [
-      {
-        imageUrl: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg',
-        id: '111',
-        title: 'Meetup in New York',
-        date: new Date(),
-        description: 'This is a first Event at New York city!!'
-      },
-      {
-        imageUrl: 'https://cdn.vuetifyjs.com/images/carousel/sky.jpg',
-        id: '222',
-        title: 'Meetup in New Paris',
-        date: new Date(),
-        description: 'This is secound one !!'
-      }
+      // {
+      //   imageUrl: '',
+      //   id: '',
+      //   title: '',
+      //   date: new Date(),
+      //   description: ''
+      // },
+      // {
+      //   imageUrl: '',
+      //   id: '',
+      //   title: '',
+      //   date: new Date(),
+      //   description: ''
+      // }
     ],
     user: null
   },
@@ -119,6 +119,9 @@ export const store = new Vuex.Store({
             console.log(error)
           }
         )
+    },
+    autoSingIn({commit}, payload) {
+      commit('setUser', {id: payload.uid, registerdMeetups: []})
     }
   },
   
