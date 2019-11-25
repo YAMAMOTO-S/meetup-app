@@ -38,13 +38,14 @@ export const store = new Vuex.Store({
     }
   },
   actions: {
-    createMeetup({ commit }, payload) {
+    createMeetup({ commit, getters}, payload) {
       const meetup = {
         title: payload.title,
         location: payload.location,
         imageUrl: payload.imageUrl,
         description: payload.description,
-        date: payload.date.toISOString()
+        date: payload.date.toISOString(),
+        creatorId: getters.user.id
       }
 
 //  firebaseに書き込む     
@@ -103,12 +104,13 @@ export const store = new Vuex.Store({
           const obj = data.val()
           for (let key in obj) {
             meetups.push({
-              id: key,
-// keyを使って中身を見ている             
+// keyを使って中身を見ている 
+              id: key,            
               title: obj[key].title,
               description: obj[key].description,
               imageUrl: obj[key].imageUrl,
-              date: obj[key].date
+              date: obj[key].date,
+              creatorId: obj[key].creatorId
             })
           }
 // ここでsetLoadedMeetupsに渡している
