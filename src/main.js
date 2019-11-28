@@ -5,10 +5,13 @@ import {store} from './store'
 import vuetify from './plugins/vuetify';
 import DateFilter from './filters/date'
 import * as firebase from 'firebase'
+import EditMeetup from './components/Meetup/EditMeetup'
+
 
 Vue.config.productionTip = false
 
 Vue.filter('date', DateFilter)
+Vue.component('edit-meetup', EditMeetup)
 
 new Vue({
   router,
